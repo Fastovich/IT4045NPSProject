@@ -7,7 +7,7 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 - See how active the parks are.
 
 ## Storyboard
-[PlaceFinder Storyboard](https://docs.google.com/presentation/d/1OG7eTNcOelRfatnLq7LP2MbUTvGfcoe_3ltykH4EOug/edit?usp=sharing)
+[PlaceFinder Storyboard]()
 
 ## Functional Requirements
 
@@ -42,18 +42,20 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 - `ParkSearchViewModel`: A view model class that provides the data and logic for the SearchParkActivity and ParkListFragment.
 - `ParkRepository`: A repository class that handles the data storage and retrieval for the parks, including storing the search results and park details.
 
+## JSON Schema
+
 ## Product Backlog
-[Scrum Board](https://github.com/Fastovich/PlaceFinder/projects?query=is%3Aopen)
+[Scrum Board]()
 
 ## Project Board
-[Project Board](https://github.com/users/Fastovich/projects/2/views/1)
+[Project Board]()
 
 ## Scrum Roles
-- Product owner/Devops, Integration Specialist: Lucas Fastovich
+- Product owner, Integration Specialist: Lucas Fastovich
 - Devops: 
 - Devops: 
 - UI Specialist: 
 
 
 ## Standups
-Weekly standups will be held at 1:30pm on Sundays over teams, with reminders and meeting schedules created to avoid missing the meeting
+Weekly standups will be held at ______________________________ over teams, with reminders and meeting schedules created to avoid missing the meeting
