@@ -44,6 +44,30 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 
 ## JSON Schema
 
+> {
+>   "type": "object",
+>   "properties": {
+>     "name": {
+>       "type": "string"
+>     },
+>     "location": {
+>       "type": "string"
+>     },
+>     "activities": {
+>       "type": "array",
+>       "items": {
+>           "type": "string"
+>       }
+>     },
+>     "address": {
+>       "type": "string"
+>     },
+>     "hours": {
+>       "type": "string"
+>     }
+>   }
+> }
+
 ## Product Backlog
 [Scrum Board]()
 
