@@ -1,8 +1,8 @@
 # IT4045NPSProject
 
 ## Introduction
-Are you bored? Do you need to find something to do? PlaceFinder can help you:
-- Find local parks and activities
+Need to find a park near you or where your Traveling? This application is the thing you need.
+- Find local national parks and activities
 - Coordinate the weather with your desired park day
 - See how active the parks are.
 
