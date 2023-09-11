@@ -5,6 +5,7 @@ Need to find a park near you or where your Traveling? This application is the th
 - Find local national parks and activities
 - Coordinate the weather with your desired park day
 - See how active the parks are.
+  
 (name TBD)
 
 ## Storyboard
