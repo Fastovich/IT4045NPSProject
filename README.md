@@ -76,10 +76,10 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 
 ## Scrum Roles
 - Product owner, Integration Specialist: Lucas Fastovich
-- Devops: 
-- Devops: 
-- UI Specialist: 
+- Devops: Reid Sweeney
+- Devops: Colin McQueen
+- UI Specialist: Derrick Adkins
 
 
 ## Standups
-Weekly standups will be held at ______________________________ over teams, with reminders and meeting schedules created to avoid missing the meeting
+Weekly standups will be held at 4pm on Tuesdays over teams, with reminders and meeting schedules created to avoid missing the meeting
