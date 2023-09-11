@@ -69,10 +69,10 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 > }
 
 ## Product Backlog
-[Scrum Board]()
+[Scrum Board](https://github.com/Fastovich/IT4045NPSProject/projects?query=is%3Aopen)
 
 ## Project Board
-[Project Board]()
+[Project Board](https://github.com/Fastovich/IT4045NPSProject/projects?query=is%3Aopen)
 
 ## Scrum Roles
 - Product owner, Integration Specialist: Lucas Fastovich
