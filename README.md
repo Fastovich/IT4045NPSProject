@@ -7,7 +7,7 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 - See how active the parks are.
 
 ## Storyboard
-[PlaceFinder Storyboard]()
+[PlaceFinder Storyboard](https://docs.google.com/presentation/d/1VyknRYQmgQUCP1RBESDgV5RL34JC8PAu6SjCmC9Hzl4/edit?usp=sharing)
 
 ## Functional Requirements
 
