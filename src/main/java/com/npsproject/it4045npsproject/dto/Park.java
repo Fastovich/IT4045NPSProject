@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * Noun class with attributes to create park objects from
+ */
 public @Data class Park {
     private String name;
     private String location;
