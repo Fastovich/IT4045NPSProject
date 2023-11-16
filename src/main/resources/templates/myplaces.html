@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        header a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .cell {
+            text-align: center;
+        }
+        .cell img {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .label-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-icon {
+            background-color: #ddd;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="#">My Places</a>
+    <a href="#">Search</a>
+    <a href="#">Settings</a>
+</header>
+<div class="search-bar">
+    <input type="text" placeholder="Search...">
+</div>
+<div class="grid">
+    <!-- Row 1 -->
+    <div class="cell">
+        <img src="https://via.placeholder.com/200" alt="Placeholder Image 1">
+        <div class="label-container">
+            <span>Label 1</span>
+            <div class="info-icon">i</div>
+        </div>
+    </div>
+    <div class="cell">
+        <img src="https://via.placeholder.com/200" alt="Placeholder Image 2">
+        <div class="label-container">
+            <span>Label 2</span>
+            <div class="info-icon">i</div>
+        </div>
+    </div>
+    <div class="cell">
+        <img src="https://via.placeholder.com/200" alt="Placeholder Image 3">
+        <div class="label-container">
+            <span>Label 3</span>
+            <div class="info-icon">i</div>
+        </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="cell">
+        <img src="https://via.placeholder.com/200" alt="Placeholder Image 4">
+        <div class="label-container">
+            <span>Label 4</span>
+            <div class="info-icon">i</div>
+        </div>
+    </div>
+    <div class="cell">
+        <img src="https://via.placeholder.com/200" alt="Placeholder Image 5">
+        <div class="label-container">
+            <span>Label 5</span>
+            <div class="info-icon">i</div>
+        </div>
+    </div>
+    <div class="cell">
+        <img src="https://via.placeholder.com/200" alt="Placeholder Image 6">
+        <div class="label-container">
+            <span>Label 6</span>
+            <div class="info-icon">i</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
