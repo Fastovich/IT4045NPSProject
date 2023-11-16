@@ -1,6 +1,6 @@
 package com.npsproject.it4045npsproject;
 
-import com.npsproject.it4045npsproject.dto.Park;
+import com.npsproject.it4045npsproject.model.Park;
 import com.npsproject.it4045npsproject.dto.ParkSearchResult;
 import org.testng.annotations.Test;
 

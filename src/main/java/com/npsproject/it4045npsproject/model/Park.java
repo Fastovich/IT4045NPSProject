@@ -1,4 +1,4 @@
-package com.npsproject.it4045npsproject.dto;
+package com.npsproject.it4045npsproject.model;
 
 import lombok.Data;
 
