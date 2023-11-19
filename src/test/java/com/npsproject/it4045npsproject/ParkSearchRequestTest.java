@@ -10,8 +10,8 @@ public class ParkSearchRequestTest {
     @Test
     public void testParkSearchRequestGettersAndSetters() {
         ParkSearchRequest request = new ParkSearchRequest();
-        request.setLocation("Wyoming, USA");
+        request.setName("Yellowstone");
 
-        assertThat(request.getLocation()).isEqualTo("Wyoming, USA");
+        assertThat(request.getName()).isEqualTo("Wyoming, USA");
     }
 }

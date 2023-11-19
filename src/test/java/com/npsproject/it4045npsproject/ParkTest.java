@@ -1,5 +1,6 @@
 package com.npsproject.it4045npsproject;
 
+import com.npsproject.it4045npsproject.model.Location;
 import com.npsproject.it4045npsproject.model.Park;
 import org.junit.jupiter.api.Test;
 
@@ -13,15 +14,16 @@ public class ParkTest {
     public void testParkGettersAndSetters() {
         Park park = new Park();
         park.setName("Yellowstone");
-        park.setLocation("Wyoming, USA");
+        park.setLocation(new Location(44.4280, -110.5885));
         park.setActivities(Arrays.asList("Hiking", "Camping", "Wildlife Watching"));
-        park.setAddress("Some address");
+        park.setStreetAddress("Some address");
         park.setHours("9 AM - 5 PM");
 
         assertThat(park.getName()).isEqualTo("Yellowstone");
-        assertThat(park.getLocation()).isEqualTo("Wyoming, USA");
+        assertThat(park.getLocation().latitude()).isEqualTo(44.4280);
+        assertThat(park.getLocation().longitude()).isEqualTo(-110.5885);
         assertThat(park.getActivities()).containsExactly("Hiking", "Camping", "Wildlife Watching");
-        assertThat(park.getAddress()).isEqualTo("Some address");
+        assertThat(park.getStreetAddress()).isEqualTo("Some address");
         assertThat(park.getHours()).isEqualTo("9 AM - 5 PM");
     }
 
