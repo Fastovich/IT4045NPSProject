@@ -6,7 +6,8 @@ import java.util.List;
 
 public @Data class Park {
     private String name;
-    private String location;
+    private float latitude;
+    private float longitude;
     private List<String> activities;
     private String address;
     private String hours;
