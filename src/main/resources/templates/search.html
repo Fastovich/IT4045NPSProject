@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 <div class="search-container">
     <h2>Search for Local and National Parks</h2>
     <select id="activity-filter">

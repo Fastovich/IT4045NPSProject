@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,11 +59,7 @@
     </style>
 </head>
 <body>
-<header>
-    <a href="#">My Places</a>
-    <a href="#">Search</a>
-    <a href="#">Settings</a>
-</header>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 <div class="search-bar">
     <input type="text" placeholder="Search...">
 </div>
