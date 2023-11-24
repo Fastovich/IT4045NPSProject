@@ -21,12 +21,12 @@ public class NPSController {
         this.parkSearchService = parkSearchService;
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/park/{name}")
     public Park getParkByName(@PathVariable String name) {
         return parkService.getParkDetails(name);
     }
 
-    @PostMapping("/search")
+    @PostMapping("/parksearch")
     public ParkSearchResult searchParks(@RequestBody ParkSearchRequest request) {
         return parkSearchService.searchParks(request);
     }
