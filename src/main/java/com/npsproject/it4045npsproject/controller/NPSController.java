@@ -8,6 +8,8 @@ import com.npsproject.it4045npsproject.service.ParkService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/parks")
 public class NPSController {
@@ -26,9 +28,11 @@ public class NPSController {
         return parkService.getParkDetails(name);
     }
 
-    @PostMapping("/parksearch")
-    public ParkSearchResult searchParks(@RequestBody ParkSearchRequest request) {
-        return parkSearchService.searchParks(request);
+    @GetMapping("/park")
+    @ResponseBody
+    public List<Park> searchParks() {
+        //return parkService.getParks();
+        return null;
     }
 
     // TODO: Add more endpoints
