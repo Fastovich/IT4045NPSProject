@@ -5,15 +5,23 @@ import com.npsproject.it4045npsproject.dto.ParkSearchResult;
 import com.npsproject.it4045npsproject.model.Park;
 import com.npsproject.it4045npsproject.service.ParkSearchService;
 import com.npsproject.it4045npsproject.service.ParkService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@RestController
-@RequestMapping("/parks")
+@Controller
+//@RequestMapping("/parks")
 public class NPSController {
 
     private final ParkService parkService;
     private final ParkSearchService parkSearchService;
+
+    @RequestMapping("/")
+    public String index(Model model) {
+        return "start";
+    }
+
 
     @Autowired
     public NPSController(ParkService parkService, ParkSearchService parkSearchService) {
