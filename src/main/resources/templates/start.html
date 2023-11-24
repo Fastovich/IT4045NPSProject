@@ -2,9 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NPS Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        header a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .left-column, .right-column {
+            width: 45%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-This is just a start test page!
+<header>
+    <a href="myplaces">My Places</a>
+    <a href="search">Search</a>
+    <a href="settings">Settings</a>
+</header>
+<div class="container">
+    <div class="left-column">
+        <div class="profile">
+            <img src="https://via.placeholder.com/80" alt="Profile Image Placeholder">
+            <span>Username</span>
+        </div>
+        <h2>Account Settings</h2>
+        <ul>
+            <li><a href="#">Personal Information</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Privacy and Sharing</a></li>
+            <li><a href="#">Language</a></li>
+        </ul>
+    </div>
+    <div class="right-column">
+        <h2>Support</h2>
+        <p><strong>Contact Us:</strong> +123-456-7890</p>
+        <p><strong>Address:</strong> 123 Main St, City, Country</p>
+        <p><strong>Email:</strong></p>
+        <ul>
+            <li><a href="mailto:example1@email.com">example1@email.com</a></li>
+            <li><a href="mailto:example2@email.com">example2@email.com</a></li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
