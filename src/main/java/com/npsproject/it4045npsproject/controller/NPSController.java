@@ -1,45 +1,43 @@
 package com.npsproject.it4045npsproject.controller;
 
-import com.npsproject.it4045npsproject.dto.ParkSearchRequest;
-import com.npsproject.it4045npsproject.dto.ParkSearchResult;
-import com.npsproject.it4045npsproject.model.Park;
-import com.npsproject.it4045npsproject.service.ParkSearchService;
-import com.npsproject.it4045npsproject.service.ParkService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.npsproject.it4045npsproject.Parser.ParkParser;
 
-import java.util.Arrays;
 import java.util.List;
 
-@Controller
-//@RequestMapping("/parks")
+import com.npsproject.it4045npsproject.dto.ParkDTO;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+
+@CrossOrigin("*")
+@RestController
+@RequestMapping(value = "/api")
+
 public class NPSController {
 
-    private final ParkService parkService;
-    private final ParkSearchService parkSearchService;
+//	@RequestMapping(value = "/home", method = RequestMethod.GET)
+//	public String getHomeHandler() {
+//		return "Welcome to home page";
+//	}
 
-    @RequestMapping("/")
-    public String index(Model model) {
-        return "start";
+    @GetMapping(value="/parks")
+    private List<ParkDTO> getParks() {
+        String uri = "https://developer.nps.gov/api/v1/parks?limit=500&api_key=Oy2F47WeNd2D39Gw4CrEKuRRk2gEWbQA6Zu6BOI5";
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(uri, String.class);
+        List<ParkDTO> all = ParkParser.retrieveParks(result);
+        return all;
     }
 
+    @GetMapping(value="/{search}")
+    private List<ParkDTO> searchParks(@PathVariable("search") String search) {
 
-    @Autowired
-    public NPSController(ParkService parkService, ParkSearchService parkSearchService) {
-        this.parkService = parkService;
-        this.parkSearchService = parkSearchService;
-    }
+        return null;
 
-    @GetMapping("/{name}")
-    public Park getParkByName(@PathVariable String name) {
-        return parkService.getParkDetails(name);
-    }
-
-    @PostMapping("/search")
-    public ParkSearchResult searchParks(@RequestBody ParkSearchRequest request) {
-        return parkSearchService.searchParks(request);
     }
 
     @GetMapping("/performSearch")
