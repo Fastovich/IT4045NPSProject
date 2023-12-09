@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Park Search</title>
+
+    <!-- Your custom JavaScript file -->
+    <script th:src="@{/js/searchParks.js}"></script>
+
+    <!-- Include jQuery (adjust the version and CDN link as needed) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <link type="text/css" rel="stylesheet" href="../static/css/styles.css">
     <style>
         header {
@@ -16,27 +23,63 @@
             text-decoration: none;
             color: #333;
         }
+        /* Navbar Styles Begin */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav a.active {
+            background-color: #555;
+        }
+
+        @media screen and (max-width: 600px) {
+            nav a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        /* Navbar Styles End */
     </style>
 </head>
 <body>
-<header>
-    <a href="myplaces">My Places</a>
-    <a href="search">Search</a>
-    <a href="settings">Settings</a>
-</header>
+<!-- Include the navbar -->
+<div th:replace="navbar :: navbar"></div>
 <div class="search-container">
-    <h2>Search for Local and National Parks</h2>
-    <select id="activity-filter">
-        <option value="">Select an activity</option>
-        <option value="hiking">Hiking</option>
-        <option value="biking">Biking</option>
-        <option value="fishing">Fishing</option>
-        <!-- Add more activities as needed -->
-    </select>
-    <input type="text" id="location" placeholder="Enter location (e.g., Cincinnati, OH)">
-    <div class="btn-container">
-        <button id="search-btn">Search</button>
-    </div>
+
+    <h1>Search Page</h1>
+
+    <form>
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" name="query" />
+        <button onclick="searchNationalParks()">Search</button>
+    </form>
+
+    <div id="resultsContainer"></div>
 </div>
 </body>
 </html>
