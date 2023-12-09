@@ -8,6 +8,7 @@
     <!-- Include jQuery (adjust the version and CDN link as needed) -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link type="text/css" rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         header {
             display: flex;
@@ -69,40 +70,64 @@
 
     <h1>Search Parks</h1>
 
-    <form id="searchForm">
-        <label for="activityInput">Enter Activity:</label>
-        <input type="text" id="activityInput" required />
-        <button type="button" onclick="searchParks()">Search</button>
-    </form>
+        <div class="row">
+            <div class="col-md-7 mb-3">
+                <label for="activityInput">Enter Activity:</label><br />
+                <input class="form-control" type="text" id="activityInput" required />
+                <button type="button" onclick="searchParks()">Search</button>
+            </div>
 
-    <div id="resultsContainer"></div>
+            <div class="col-md-5 mb-3">
+                <label for="maxResults">Max Results:</label>
+                <select class="form-control" id="maxResults">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        </div>
+
+
+    <div class="container mt-4">
+        <div class="row" id="parkCardContainer">
+            <!-- Park cards will be dynamically added here -->
+        </div>
+    </div>
 
     <script>
         function searchParks() {
             var activity = document.getElementById("activityInput").value;
+            var limit = document.getElementById("maxResults").value;
 
             // Make an AJAX request to the /api/searchParks endpoint
-            fetch('/api/search-parks?query=' + encodeURIComponent(activity))
+            fetch('/api/search-for-parks?query=' + encodeURIComponent(activity) + '&limit=' + encodeURIComponent(limit))
                 .then(response => response.json())
-                .then(data => displayResults(data))
+                .then(data => renderParkCards(data.data))
                 .catch(error => console.error('Error:', error));
         }
 
-        function displayResults(results) {
-            var resultsContainer = document.getElementById("resultsContainer");
-            resultsContainer.innerHTML = ""; // Clear previous results
+        function renderParkCards(parks) {
+            var parkCardContainer = $('#parkCardContainer');
+            parkCardContainer.empty();
 
-            if (results.length === 0) {
-                resultsContainer.innerHTML = "<p>No parks found for the specified activity.</p>";
-            } else {
-                var list = document.createElement("ul");
-                results.forEach(function(park) {
-                    var listItem = document.createElement("li");
-                    listItem.textContent = park.fullName + " - " + park.states;
-                    list.appendChild(listItem);
-                });
-                resultsContainer.appendChild(list);
-            }
+            // Loop through each park and create a card
+            $.each(parks, function(index, park) {
+                var cardHtml = `
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="${park.images[0].url}" class="card-img-top" alt="Park Image">
+                                <div class="card-body" style="max-height: 200px; overflow-y: auto;">
+                                    <h5 class="card-title">${park.fullName}</h5>
+                                    <p class="card-text">${park.description}</p>
+                                    <a href="${park.url}" target="_blank" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                parkCardContainer.append(cardHtml);
+            });
         }
     </script>
 </div>

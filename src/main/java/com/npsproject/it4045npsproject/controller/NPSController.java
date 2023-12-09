@@ -2,6 +2,7 @@ package com.npsproject.it4045npsproject.controller;
 
 import Parser.ParkParser;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dto.ParkDTO;
 import dto.ParkInfo;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import com.npsproject.it4045npsproject.service.ParkInfoService;
@@ -21,25 +23,38 @@ import com.npsproject.it4045npsproject.service.ParkInfoService;
 
 public class NPSController {
 
-    @GetMapping(value = "/parks")
-    private List<ParkDTO> getParks(@RequestParam(name = "query") String query) {
-        if (query == null || query.isEmpty()) {
-            throw new IllegalArgumentException("You must enter a Search Criteria");
-        }
-
-        String apiKey = "Oy2F47WeNd2D39Gw4CrEKuRRk2gEWbQA6Zu6BOI5";
-        String uri = "https://developer.nps.gov/api/v1/activities/parks/q=" + query + "&limit=500&api_key=" + apiKey;
-
+    @GetMapping(value="/parks")
+    private List<ParkDTO> getParks() {
+        String uri = "https://developer.nps.gov/api/v1/parks?limit=500&api_key=Oy2F47WeNd2D39Gw4CrEKuRRk2gEWbQA6Zu6BOI5";
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
-
-        return ParkParser.retrieveParks(result);
+        List<ParkDTO> all = ParkParser.retrieveParks(result);
+        return all;
     }
 
-    @GetMapping("/search-parks")
-    public ParkInfo searchParks(@RequestParam String query) {
+    @GetMapping(value="/{search}")
+    private List<ParkDTO> searchParks(@PathVariable("search") String search) {
+
+        return null;
+
+    }
+
+    @GetMapping("/performSearch")
+    public String performSearch(@RequestParam("query") String query, Model model) {
+        // Here, you can perform the actual search based on the query
+        // For simplicity, let's assume you have a list of items to display
+        List<String> searchResults = Arrays.asList("Result 1", "Result 2", "Result 3");
+
+        model.addAttribute("searchResults", searchResults);
+
+        return "search";
+    }
+
+
+    @GetMapping("/search-for-parks")
+    public ParkInfo searchForParks(@RequestParam String query,@RequestParam String limit) {
         String apiKey = "Oy2F47WeNd2D39Gw4CrEKuRRk2gEWbQA6Zu6BOI5";
-        String uri = "https://developer.nps.gov/api/v1/parks?q=" + query + "&limit=1&api_key=" + apiKey;
+        String uri = "https://developer.nps.gov/api/v1/parks?q=" + query + "&limit=" + limit + "&api_key=" + apiKey;
 
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
@@ -53,23 +68,6 @@ public class NPSController {
             e.printStackTrace(); // Handle or log the exception as needed
         }
         return parkInfoList;
-    }
-
-    private List<ParkDTO> getParksFromApi(String query) {
-        // Modify this method to make the API call based on the provided activity
-        String apiKey = "Oy2F47WeNd2D39Gw4CrEKuRRk2gEWbQA6Zu6BOI5";
-        String uri = "https://developer.nps.gov/api/v1/activities/parks?q=" + query + "&api_key=" + apiKey;
-
-        RestTemplate restTemplate = new RestTemplate();
-        String result = "";
-        try {
-            result = restTemplate.getForObject(uri, String.class);
-        }
-        catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return ParkParser.retrieveParks(result);
     }
 
 
