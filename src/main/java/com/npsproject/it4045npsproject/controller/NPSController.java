@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/api")
+
 public class NPSController {
 
 //	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -39,4 +40,16 @@ public class NPSController {
 
     }
 
+    @GetMapping("/performSearch")
+    public String performSearch(@RequestParam("query") String query, Model model) {
+        // Here, you can perform the actual search based on the query
+        // For simplicity, let's assume you have a list of items to display
+        List<String> searchResults = Arrays.asList("Result 1", "Result 2", "Result 3");
+
+        model.addAttribute("searchResults", searchResults);
+
+        return "search";
+    }
+
+    // TODO: Add more endpoints
 }

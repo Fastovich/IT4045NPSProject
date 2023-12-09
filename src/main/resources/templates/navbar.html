@@ -1,10 +1,19 @@
+<!-- src/main/resources/templates/navbar.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Park Details</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title></title>
+    <!-- Add any additional styles or links here -->
     <style>
         /* Navbar Styles Begin */
 
@@ -50,25 +59,12 @@
     </style>
 </head>
 <body>
-<!-- Include the navbar -->
-<div th:replace="navbar :: navbar"></div>
-<div class="details-container">
-    <h2>Central Park, New York</h2>
-    <div class="left-column">
-        <img src="park-placeholder.jpg" alt="Central Park Image" class="park-image">
-        <p><strong>Address:</strong> Central Park West & 5th Ave, New York, NY 10024</p>
-        <p><strong>Hours of Operation:</strong> 6:00 AM - 1:00 AM</p>
-    </div>
-    <div class="right-column">
-        <p>Description of the park goes here...</p>
-        <h3>Available Activities:</h3>
-        <ul>
-            <li>Hiking</li>
-            <li>Biking</li>
-            <li>Boating</li>
-            <!-- Add more activities as needed -->
-        </ul>
-    </div>
+<div th:fragment="navbar">
+    <nav>
+        <a th:href="@{/myplaces}" th:class="${activePage == 'myplaces' ? 'active' : ''}">My Places</a>
+        <a th:href="@{/search}" th:class="${activePage == 'search' ? 'active' : ''}">Search</a>
+        <a th:href="@{/settings}" th:class="${activePage == 'settings' ? 'active' : ''}">Settings</a>
+    </nav>
 </div>
 </body>
 </html>

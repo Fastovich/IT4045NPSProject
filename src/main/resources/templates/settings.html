@@ -49,14 +49,52 @@
         ul li {
             margin-bottom: 10px;
         }
+        /* Navbar Styles Begin */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav a.active {
+            background-color: #555;
+        }
+
+        @media screen and (max-width: 600px) {
+            nav a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        /* Navbar Styles End */
     </style>
 </head>
 <body>
-<header>
-    <a href="#">My Places</a>
-    <a href="#">Search</a>
-    <a href="#">Settings</a>
-</header>
+<!-- Include the navbar -->
+<div th:replace="navbar :: navbar"></div>
 <div class="container">
     <div class="left-column">
         <div class="profile">
