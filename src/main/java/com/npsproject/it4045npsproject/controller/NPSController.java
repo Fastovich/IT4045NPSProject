@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/api")
-public class ParksController {
+public class NPSController {
 
 //	@RequestMapping(value = "/home", method = RequestMethod.GET)
 //	public String getHomeHandler() {
