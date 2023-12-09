@@ -1,4 +1,4 @@
-package com.npsproject.it4045npsproject.dto;
+package dto;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

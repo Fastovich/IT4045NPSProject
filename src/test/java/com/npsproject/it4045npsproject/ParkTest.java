@@ -1,9 +1,7 @@
 package com.npsproject.it4045npsproject;
 
-import com.npsproject.it4045npsproject.dto.ParkDTO;
+import dto.ParkDTO;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

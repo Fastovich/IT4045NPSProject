@@ -1,6 +1,6 @@
 package com.npsproject.it4045npsproject;
 
-import com.npsproject.it4045npsproject.model.Location;
+import model.Location;
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.Test;
 

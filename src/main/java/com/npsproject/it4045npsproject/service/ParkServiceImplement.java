@@ -1,17 +1,15 @@
 package com.npsproject.it4045npsproject.service;
 
-import com.npsproject.it4045npsproject.dto.ParkDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import dto.ParkDTO;
+import repository.ParkRepository;
 
-import com.npsproject.it4045npsproject.repository.ParkRepository;
 
 import java.util.List;
 
-@Service
-public class ParkServiceImplement implements ParkService {
 
-    @Autowired
+public class ParkServiceImplement extends ParkService {
+
+
     private ParkRepository parksRepo;
 
     public List<ParkDTO> getAllParks(String search) {

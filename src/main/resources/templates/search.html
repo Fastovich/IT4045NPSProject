@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Park Search</title>
 
-    <!-- Your custom JavaScript file -->
-    <script th:src="@{/js/searchParks.js}"></script>
-
     <!-- Include jQuery (adjust the version and CDN link as needed) -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
     <link type="text/css" rel="stylesheet" href="../static/css/styles.css">
     <style>
         header {
@@ -71,15 +67,44 @@
 <div th:replace="navbar :: navbar"></div>
 <div class="search-container">
 
-    <h1>Search Page</h1>
+    <h1>Search Parks</h1>
 
-    <form>
-        <label for="searchInput">Search:</label>
-        <input type="text" id="searchInput" name="query" />
-        <button onclick="searchNationalParks()">Search</button>
+    <form id="searchForm">
+        <label for="activityInput">Enter Activity:</label>
+        <input type="text" id="activityInput" required />
+        <button type="button" onclick="searchParks()">Search</button>
     </form>
 
     <div id="resultsContainer"></div>
+
+    <script>
+        function searchParks() {
+            var activity = document.getElementById("activityInput").value;
+
+            // Make an AJAX request to the /api/searchParks endpoint
+            fetch('/api/search-parks?query=' + encodeURIComponent(activity))
+                .then(response => response.json())
+                .then(data => displayResults(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayResults(results) {
+            var resultsContainer = document.getElementById("resultsContainer");
+            resultsContainer.innerHTML = ""; // Clear previous results
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = "<p>No parks found for the specified activity.</p>";
+            } else {
+                var list = document.createElement("ul");
+                results.forEach(function(park) {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = park.fullName + " - " + park.states;
+                    list.appendChild(listItem);
+                });
+                resultsContainer.appendChild(list);
+            }
+        }
+    </script>
 </div>
 </body>
 </html>

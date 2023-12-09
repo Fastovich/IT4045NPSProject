@@ -1,4 +1,4 @@
-package com.npsproject.it4045npsproject.model;
+package model;
 
 public record Location(double latitude, double longitude) {
     /**

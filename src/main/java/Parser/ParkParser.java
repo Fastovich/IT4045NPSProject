@@ -1,6 +1,6 @@
-package com.npsproject.it4045npsproject.Parser;
+package Parser;
 
-import com.npsproject.it4045npsproject.dto.ParkDTO;
+import dto.ParkDTO;
 
 import java.util.ArrayList;
 import java.util.List;

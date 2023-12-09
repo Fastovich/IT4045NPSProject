@@ -1,4 +1,4 @@
-package com.npsproject.it4045npsproject.Parser;
+package Parser;
 
 public class Addresses {
     int postalCode;

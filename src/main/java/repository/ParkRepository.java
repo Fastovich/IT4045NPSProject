@@ -1,7 +1,7 @@
-package com.npsproject.it4045npsproject.repository;
+package repository;
 
 
-import com.npsproject.it4045npsproject.dto.ParkDTO;
+import dto.ParkDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
