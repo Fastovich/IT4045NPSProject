@@ -2,7 +2,7 @@ package com.npsproject.it4045npsproject;
 
 import dto.ParkDTO;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,6 +13,6 @@ public class ParkSearchRequestTest {
         ParkDTO request = new ParkDTO();
         request.setFullName("Yellowstone");
 
-        assertThat(request.getFullName()).isEqualTo("Wyoming, USA");
+        assertThat(request.getFullName()).isEqualTo("Yellowstone");
     }
 }
